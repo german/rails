@@ -739,15 +739,7 @@ class AppGeneratorTest < Rails::Generators::TestCase
   def test_mutual_use_of_skip_asset_pipeline_and_css_options
     run_generator [destination_root, "--skip-assets-pipeline", "--css=sass"]
 
-    # command_check = -> command, *_ do
-    #   if command == "importmap:install"
-    #     flunk "`importmap:install` expected to not be called."
-    #   end
-    # end
-
-    #generator.stub(:rails_command, command_check) do
-      run_generator_instance
-    #end
+    run_generator_instance
 
     assert_no_gem "importmap-rails"
     assert_no_gem "jsbundling-rails"
