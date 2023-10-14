@@ -187,6 +187,7 @@ module Rails
         skip_active_record:  [:skip_active_storage],
         skip_active_storage: [:skip_action_mailbox, :skip_action_text],
         skip_javascript:     [:skip_hotwire],
+        skip_asset_pipeline: [:css]
       }
 
       # ==== Options

@@ -751,6 +751,16 @@ class AppGeneratorTest < Rails::Generators::TestCase
     end
   end
 
+  def test_mutual_use_of_skip_asset_pipeline_and_css_options
+    run_generator [destination_root, "--skip-assets-pipeline", "--css=sass"]
+
+    run_generator_instance
+
+    assert_no_gem "importmap-rails"
+    assert_no_gem "jsbundling-rails"
+    assert_no_node_files
+  end
+
   def test_webpack_option
     generator([destination_root], javascript: "webpack")
 
